@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruz Celta Interactiva - Psicoandino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ESTILOS BASE */
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #12141a;
+            background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1546944626-d668ed534125?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #f0e9d2;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1.main-title {
+            color: #c7a166;
+            font-size: 2.2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            margin-bottom: 30px;
+        }
+
+        .controls {
+            margin-bottom: 40px;
+        }
+
+        button {
+            background-color: transparent;
+            color: #c7a166;
+            border: 2px solid #c7a166;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        button:hover {
+            background-color: #c7a166;
+            color: #12141a;
+            box-shadow: 0 0 20px rgba(199, 161, 102, 0.4);
+        }
+
+        /* --- LAYOUT PRINCIPAL (TABLERO + BLOC DE NOTAS) --- */
+        .layout-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* --- ARQUITECTURA DEL TABLERO --- */
+        .board-container {
+            display: flex;
+            gap: 40px;
+            opacity: 0.5;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+
+        .board-container.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cross-section {
+            display: grid;
+            grid-template-columns: 130px 130px 130px;
+            grid-template-rows: 210px 210px 210px;
+            gap: 15px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .staff-section {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 15px;
+            justify-content: space-between;
+        }
+
+        .pos-4 { grid-column: 2; grid-row: 1; }
+        .pos-5 { grid-column: 1; grid-row: 2; }
+        .pos-center { grid-column: 2; grid-row: 2; position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+        .pos-6 { grid-column: 3; grid-row: 2; }
+        .pos-3 { grid-column: 2; grid-row: 3; }
+
+        /* --- SISTEMA DE CARTAS --- */
+        .card-slot {
+            width: 110px;
+            height: 183px; /* Proporción 3:5 */
+            perspective: 1000px;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+
+        /* Efecto al pasar la mano por encima */
+        .card-slot.flipped:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+
+        .card-slot.pos-2 { position: absolute; transform: rotate(90deg); z-index: 2; }
+        .card-slot.pos-2.flipped:hover { transform: rotate(90deg) scale(1.05); }
+        .card-slot.pos-1 { z-index: 1; }
+
+        .card-inner {
+            width: 100%; height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+            border-radius: 6px;
+        }
+
+        .card-slot.flipped .card-inner { transform: rotateY(180deg); }
+
+        .card-front, .card-back {
+            position: absolute; width: 100%; height: 100%;
+            backface-visibility: hidden;
+            border-radius: 6px; border: 2px solid #8b7355;
+        }
+
+        .card-front {
+            background-color: #2b231d;
+            background-image: repeating-linear-gradient(45deg, #2b231d 25%, transparent 25%, transparent 75%, #2b231d 75%, #2b231d), repeating-linear-gradient(45deg, #2b231d 25%, #1a1511 25%, #1a1511 75%, #2b231d 75%, #2b231d);
+            background-position: 0 0, 10px 10px; background-size: 20px 20px;
+            display: flex; justify-content: center; align-items: center;
+        }
+        
+        .card-front::after {
+            content: attr(data-number); color: #c7a166; font-size: 1.8em; font-weight: bold; opacity: 0.5;
+        }
+
+        .card-back {
+            background-color: #000; transform: rotateY(180deg);
+            background-size: cover; background-position: center;
+        }
+
+        /* --- BLOC DE NOTAS (LATERAL) --- */
+        .notepad {
+            width: 350px;
+            background-color: #f4e8d1; /* Color papel viejo */
+            color: #2b231d; /* Tinta oscura */
+            padding: 30px;
+            border-radius: 4px 15px 15px 4px;
+            border-left: 8px solid #8b7355; /* Lomo del cuaderno */
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.8), inset 0 0 50px rgba(139, 115, 85, 0.1);
+            position: sticky; /* Se mantiene en pantalla si haces scroll */
+            top: 40px;
+            height: fit-content;
+            min-height: 400px;
+            background-image: repeating-linear-gradient(transparent, transparent 31px, rgba(139, 115, 85, 0.2) 31px, rgba(139, 115, 85, 0.2) 32px); /* Líneas de cuaderno */
+            line-height: 32px; /* Alineado con las líneas */
+        }
+
+        .notepad-placeholder {
+            font-style: italic;
+            color: #8b7355;
+            text-align: center;
+            margin-top: 50%;
+            transform: translateY(-50%);
+            line-height: 1.5;
+        }
+
+        .notepad-content {
+            display: none; /* Oculto hasta que se haga hover */
+        }
+
+        .notepad.active .notepad-content { display: block; }
+        .notepad.active .notepad-placeholder { display: none; }
+
+        .position-meaning { 
+            color: #8b7355; font-weight: bold; text-transform: uppercase; 
+            font-size: 0.85em; letter-spacing: 1px; line-height: 1.5;
+        }
+        
+        .notepad h2 { 
+            margin: 5px 0 15px 0; font-size: 1.6em; border-bottom: 2px solid #2b231d; 
+            line-height: 1.2; padding-bottom: 5px;
+        }
+        
+        .notepad p { font-size: 1.05em; font-style: italic; margin-bottom: 15px; line-height: 1.6; background-color: rgba(244, 232, 209, 0.8); }
+        
+        .notepad h3 { font-size: 1.1em; text-transform: uppercase; margin-bottom: 5px; line-height: 1.5;}
+        
+        .notepad ul { padding-left: 20px; margin: 0; }
+        .notepad li { font-size: 1em; margin-bottom: 5px; line-height: 1.4; background-color: rgba(244, 232, 209, 0.8);}
+
+        /* Responsividad básica para pantallas pequeñas */
+        @media (max-width: 900px) {
+            .layout-wrapper { flex-direction: column; align-items: center; }
+            .notepad { width: 90%; max-width: 500px; position: static; min-height: auto; }
+            .board-container { flex-direction: column; align-items: center; }
+            .staff-section { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="main-title">La Cruz Celta</h1>
+    
+    <div class="controls">
+        <button id="shuffle-btn">Barajar y Repartir</button>
+    </div>
+
+    <div class="layout-wrapper">
+        <div class="board-container" id="board">
+            <div class="cross-section">
+                <div class="card-slot pos-4" data-index="3" data-position="4. Consciente / A la vista" data-number="4"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+                <div class="card-slot pos-5" data-index="4" data-position="5. Pasado Reciente" data-number="5"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+                
+                <div class="pos-center">
+                    <div class="card-slot pos-1" data-index="0" data-position="1. El Ser / La Esencia" data-number="1"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+                    <div class="card-slot pos-2" data-index="1" data-position="2. Hacer / El Desafío" data-number="2"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+                </div>
+
+                <div class="card-slot pos-6" data-index="5" data-position="6. Futuro Próximo" data-number="6"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+                <div class="card-slot pos-3" data-index="2" data-position="3. Inconsciente / Lo Oculto" data-number="3"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+            </div>
+
+            <div class="staff-section">
+                <div class="card-slot" data-index="6" data-position="7. Presente / Lo Actual" data-number="7"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+                <div class="card-slot" data-index="7" data-position="8. Entorno / Ambiente" data-number="8"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+                <div class="card-slot" data-index="8" data-position="9. Esperanzas y Temores" data-number="9"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+                <div class="card-slot" data-index="9" data-position="10. Tendencia / Resultado" data-number="10"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+            </div>
+        </div>
+
+        <aside class="notepad" id="notepad">
+            <div class="notepad-placeholder" id="notepad-placeholder">
+                Haz clic en las cartas para revelarlas.<br><br>
+                Pasa el cursor sobre una carta revelada para leer su significado.
+            </div>
+            <div class="notepad-content" id="notepad-content">
+                <div class="position-meaning" id="note-pos"></div>
+                <h2 id="note-name"></h2>
+                <p id="note-desc"></p>
+                <h3>Introspección:</h3>
+                <ul id="note-questions"></ul>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        let mazoCompleto = [];
+        let tiradaActual = [];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            fetch('arcanes.json')
+                .then(res => res.json())
+                .then(data => mazoCompleto = data)
+                .catch(err => console.error("Error:", err));
+        });
+
+        function barajar(array) {
+            let mazo = [...array];
+            for (let i = mazo.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [mazo[i], mazo[j]] = [mazo[j], mazo[i]];
+            }
+            return mazo;
+        }
+
+        const btnBarajar = document.getElementById('shuffle-btn');
+        const board = document.getElementById('board');
+        const slots = document.querySelectorAll('.card-slot');
+        const notepad = document.getElementById('notepad');
+
+        // BARAJAR
+        btnBarajar.addEventListener('click', () => {
+            if (mazoCompleto.length < 10) return alert("Cargando el mazo...");
+
+            slots.forEach(slot => slot.classList.remove('flipped'));
+            notepad.classList.remove('active');
+
+            const mazoMezclado = barajar(mazoCompleto);
+            tiradaActual = mazoMezclado.slice(0, 10);
+
+            setTimeout(() => {
+                slots.forEach(slot => {
+                    const index = slot.getAttribute('data-index');
+                    const carta = tiradaActual[index];
+                    const backFace = slot.querySelector('.card-back');
+                    backFace.style.backgroundImage = `url('${carta.imagen}')`;
+                });
+                
+                board.classList.add('active');
+                btnBarajar.textContent = "Volver a Barajar";
+            }, 500);
+        });
+
+        // REVELAR CARTA AL HACER CLIC
+        slots.forEach(slot => {
+            slot.addEventListener('click', function() {
+                if (!board.classList.contains('active')) return;
+                this.classList.add('flipped');
+            });
+        });
+
+        // LEER CARTA AL HACER HOVER (Pasar el cursor)
+        slots.forEach(slot => {
+            slot.addEventListener('mouseenter', function() {
+                // Solo lee si el tablero está activo y la carta ya fue revelada (clicada)
+                if (!board.classList.contains('active') || !this.classList.contains('flipped')) return;
+
+                const index = this.getAttribute('data-index');
+                const positionMeaning = this.getAttribute('data-position');
+                const carta = tiradaActual[index];
+
+                document.getElementById('note-pos').textContent = `Posición: ${positionMeaning}`;
+                document.getElementById('note-name').textContent = carta.nombre;
+                document.getElementById('note-desc').textContent = carta.descripcion;
+                
+                const ul = document.getElementById('note-questions');
+                ul.innerHTML = '';
+                carta.preguntas.forEach(q => {
+                    let li = document.createElement('li');
+                    li.textContent = q;
+                    ul.appendChild(li);
+                });
+
+                notepad.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

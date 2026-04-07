@@ -1,0 +1,244 @@
+[
+  {
+    "id": 0,
+    "nombre": "0 - EL LOCO",
+    "imagen": "assets/00_Fool.jpg",
+    "descripcion": "El comienzo de un viaje, la inocencia, y un salto de fe al vacío. Representa el potencial puro, la libertad absoluta y la confianza en que el universo te sostendrá si te atreves a dar el paso.",
+    "preguntas": [
+      "¿En qué área de mi vida necesito atreverme a dar un salto de fe?",
+      "¿Qué creencias o miedos me están limitando para empezar de nuevo?",
+      "Si supiera que no puedo fallar, ¿qué aventura comenzaría hoy?"
+    ]
+  },
+  {
+    "id": 1,
+    "nombre": "I - EL MAGO",
+    "imagen": "assets/01_Magician.jpg",
+    "descripcion": "La manifestación y el poder personal. Tienes todas las herramientas necesarias sobre la mesa (aire, fuego, agua, tierra). Es el recordatorio de que eres el arquitecto de tu propia realidad.",
+    "preguntas": [
+      "¿Qué recursos, talentos o habilidades tengo a mi disposición que no estoy utilizando?",
+      "¿Qué intención clara necesito establecer hoy para materializar mis deseos?",
+      "¿Dónde estoy cediendo mi poder personal en lugar de tomar acción?"
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "II - LA SACERDOTISA",
+    "imagen": "assets/02_High_Priestess.jpg",
+    "descripcion": "El misterio, la intuición y el conocimiento oculto. Te invita a mirar más allá de lo evidente, a entrar en la quietud y escuchar la voz de tu subconsciente antes de tomar decisiones.",
+    "preguntas": [
+      "¿Qué verdad interior estoy silenciando o ignorando por estar demasiado ocupado?",
+      "¿Hacia dónde me guía mi intuición frente a mi situación actual?",
+      "¿En qué aspecto de mi vida necesito cultivar más paciencia y observación?"
+    ]
+  },
+  {
+    "id": 3,
+    "nombre": "III - LA EMPERATRIZ",
+    "imagen": "assets/03_Empress.jpg",
+    "descripcion": "La abundancia, la fertilidad, la sensualidad y la naturaleza creadora. Es la madre cósmica que nutre las ideas y las relaciones, invitándote a conectar con la belleza y el placer del mundo material.",
+    "preguntas": [
+      "¿Qué proyecto, relación o idea en mi vida necesita ser nutrida para florecer?",
+      "¿Cómo puedo tratarme a mí mismo y a mi cuerpo con más amor y cuidado hoy?",
+      "¿Me estoy permitiendo recibir la abundancia que el universo me ofrece?"
+    ]
+  },
+  {
+    "id": 4,
+    "nombre": "IV - EL EMPERADOR",
+    "imagen": "assets/04_Emperor.jpg",
+    "descripcion": "La estructura, la autoridad, el orden y el liderazgo. Representa la capacidad de organizar el caos mediante la disciplina y de establecer límites sanos para construir cimientos sólidos.",
+    "preguntas": [
+      "¿En qué área de mi vida necesito establecer límites más claros o firmes?",
+      "¿Estoy asumiendo la responsabilidad y el liderazgo de mis propias decisiones?",
+      "¿Dónde necesito aplicar más estructura y disciplina para alcanzar mis metas?"
+    ]
+  },
+  {
+    "id": 5,
+    "nombre": "V - EL HIEROFANTE",
+    "imagen": "assets/05_Hierophant.jpg",
+    "descripcion": "La tradición, la enseñanza espiritual y la búsqueda de sentido dentro de un sistema de creencias. Te invita a honrar la sabiduría ancestral y a encontrar un puente entre lo terrenal y lo divino.",
+    "preguntas": [
+      "¿Qué valores o creencias tradicionales me están sirviendo y cuáles necesito cuestionar?",
+      "¿De quién estoy dispuesto a aprender, o a quién estoy llamado a guiar?",
+      "¿Cómo puedo integrar una práctica espiritual más profunda en mi rutina diaria?"
+    ]
+  },
+  {
+    "id": 6,
+    "nombre": "VI - LOS ENAMORADOS",
+    "imagen": "assets/06_Lovers.jpg",
+    "descripcion": "La unión, la alineación de valores y las decisiones dictadas por el corazón. Más allá del romance, representa la armonía entre opuestos y la encrucijada donde debes elegir qué es lo que realmente amas.",
+    "preguntas": [
+      "¿Qué decisión importante debo tomar basándome en mis valores más profundos?",
+      "¿Cómo puedo cultivar una mayor armonía entre mi mente y mi corazón?",
+      "En mis relaciones, ¿estoy actuando desde el amor auténtico o desde el apego?"
+    ]
+  },
+  {
+    "id": 7,
+    "nombre": "VII - EL CARRO",
+    "imagen": "assets/07_Chariot.jpg",
+    "descripcion": "La voluntad, la determinación y el triunfo sobre los obstáculos. Representa el control sobre fuerzas opuestas para mantener una dirección clara y avanzar con confianza hacia la victoria.",
+    "preguntas": [
+      "¿Qué objetivo requiere que enfoque toda mi voluntad y determinación en este momento?",
+      "¿Qué fuerzas opuestas en mi interior necesito reconciliar para poder avanzar?",
+      "¿Estoy tomando las riendas de mi vida o dejando que las circunstancias me arrastren?"
+    ]
+  },
+  {
+    "id": 8,
+    "nombre": "VIII - LA FUERZA",
+    "imagen": "assets/08_Strength.jpg",
+    "descripcion": "La compasión, el coraje interior y el dominio de los instintos primarios mediante el amor, no mediante la represión. Es la fuerza suave que calma a la bestia interna a través de la paciencia.",
+    "preguntas": [
+      "¿A qué 'bestia interna' (miedo, ira, adicción) necesito acercarme con compasión hoy?",
+      "¿En qué situación necesito aplicar resistencia suave en lugar de fuerza bruta?",
+      "¿Cómo puedo demostrar valentía mostrándome vulnerable?"
+    ]
+  },
+  {
+    "id": 9,
+    "nombre": "IX - EL ERMITAÑO",
+    "imagen": "assets/09_Hermit.jpg",
+    "descripcion": "El aislamiento voluntario, la introspección y la búsqueda de la verdad interior. Es el retiro del ruido del mundo exterior para iluminar el propio camino con la lámpara de la sabiduría personal.",
+    "preguntas": [
+      "¿Qué respuestas estoy buscando afuera que solo puedo encontrar en el silencio?",
+      "¿Necesito desconectarme del mundo exterior para recargar mi energía espiritual?",
+      "¿Qué aspecto de mi sombra estoy listo para iluminar e integrar?"
+    ]
+  },
+  {
+    "id": 10,
+    "nombre": "X - LA RUEDA DE LA FORTUNA",
+    "imagen": "assets/10_Wheel_of_Fortune.jpg",
+    "descripcion": "Los ciclos de la vida, el destino y los puntos de inflexión. Te recuerda que todo es impermanente; lo que sube debe bajar, enseñando la aceptación frente a las fuerzas que están fuera de tu control.",
+    "preguntas": [
+      "¿A qué ciclo o patrón en mi vida me estoy resistiendo en lugar de fluir con él?",
+      "¿Cómo puedo mantenerme centrado cuando las circunstancias externas cambian drásticamente?",
+      "¿Qué lección kármica se está repitiendo para que finalmente la aprenda?"
+    ]
+  },
+  {
+    "id": 11,
+    "nombre": "XI - LA JUSTICIA",
+    "imagen": "assets/11_Justice.jpg",
+    "descripcion": "La causa y el efecto, la verdad absoluta y la responsabilidad. Te llama a evaluar tus acciones con objetividad, buscando el equilibrio y asumiendo las consecuencias de tus decisiones pasadas.",
+    "preguntas": [
+      "¿Estoy siendo completamente honesto y justo conmigo mismo y con los demás?",
+      "¿Qué consecuencias de mis acciones pasadas necesito enfrentar y resolver hoy?",
+      "¿Cómo puedo restaurar el equilibrio en las áreas de mi vida que se sienten desajustadas?"
+    ]
+  },
+  {
+    "id": 12,
+    "nombre": "XII - EL COLGADO",
+    "imagen": "assets/12_Hanged_Man.jpg",
+    "descripcion": "La pausa, la rendición y el cambio de perspectiva. Te pide que sueltes el control, que sacrifiques viejos paradigmas y que veas la situación desde un ángulo completamente diferente para obtener iluminación.",
+    "preguntas": [
+      "¿Qué situación requiere que deje de forzar las cosas y simplemente me rinda al proceso?",
+      "¿Qué perspectiva rígida necesito abandonar para ver la verdad?",
+      "¿A qué debo renunciar temporalmente para lograr un bien mayor a largo plazo?"
+    ]
+  },
+  {
+    "id": 13,
+    "nombre": "XIII - LA MUERTE",
+    "imagen": "assets/13_Death.jpg",
+    "descripcion": "La transformación profunda, los finales necesarios y la transición. No es una muerte física, sino la eliminación de lo que ya no sirve para abonar la tierra y permitir que nazca algo completamente nuevo.",
+    "preguntas": [
+      "¿Qué etapa, relación o hábito en mi vida debe morir para que yo pueda evolucionar?",
+      "¿A qué me estoy aferrando por miedo a lo desconocido?",
+      "¿Qué nuevo espacio se está creando al dejar ir mi pasado?"
+    ]
+  },
+  {
+    "id": 14,
+    "nombre": "XIV - LA TEMPLANZA",
+    "imagen": "assets/14_Temperance.jpg",
+    "descripcion": "La alquimia, el equilibrio y la moderación. Es la integración de elementos opuestos para crear una nueva síntesis, invitándote a encontrar el punto medio y a sanar a través de la paciencia.",
+    "preguntas": [
+      "¿En qué área de mi vida estoy actuando con extremos y necesito encontrar el camino medio?",
+      "¿Qué energías dispares dentro de mí estoy llamado a integrar y armonizar?",
+      "¿Cómo puedo cultivar más paz y paciencia durante mi proceso de sanación?"
+    ]
+  },
+  {
+    "id": 15,
+    "nombre": "XV - EL DIABLO",
+    "imagen": "assets/15_Devil.jpg",
+    "descripcion": "Las ataduras, la sombra, el materialismo y las adicciones. Ilumina las ilusiones que te mantienen encadenado, recordándote que la puerta de tu prisión está abierta si decides soltar tus apegos.",
+    "preguntas": [
+      "¿Qué hábito tóxico, creencia limitante o relación me está restando libertad?",
+      "¿Dónde estoy proyectando mi propia sombra en lugar de hacerme cargo de ella?",
+      "¿Qué miedos estoy permitiendo que tomen las decisiones por mí?"
+    ]
+  },
+  {
+    "id": 16,
+    "nombre": "XVI - LA TORRE",
+    "imagen": "assets/16_Tower.jpg",
+    "descripcion": "El caos, la revelación súbita y el colapso de las falsas estructuras. Es el rayo de verdad que destruye el ego y lo construido sobre mentiras, para que puedas reconstruir sobre bases auténticas.",
+    "preguntas": [
+      "¿Qué estructura o creencia fundamental en mi vida se está desmoronando y por qué es necesario?",
+      "¿Dónde he estado construyendo mi vida sobre ilusiones en lugar de verdades sólidas?",
+      "¿Cómo puedo abrazar la liberación que viene después del caos actual?"
+    ]
+  },
+  {
+    "id": 17,
+    "nombre": "XVII - LA ESTRELLA",
+    "imagen": "assets/17_Star.jpg",
+    "descripcion": "La esperanza, la sanación, la inspiración y la fe renovada. Después de la tormenta de La Torre, el universo te ofrece guía y tranquilidad, recordándote que estás conectado con lo divino.",
+    "preguntas": [
+      "¿Qué herida profunda está finalmente comenzando a sanar?",
+      "¿En qué puedo encontrar genuina esperanza y fe en este momento?",
+      "¿Cómo puedo compartir mi luz y mi inspiración con los que me rodean?"
+    ]
+  },
+  {
+    "id": 18,
+    "nombre": "XVIII - LA LUNA",
+    "imagen": "assets/18_Moon.jpg",
+    "descripcion": "La ilusión, el miedo, la ansiedad y el reino del subconsciente. Las cosas no son lo que parecen a la luz de la luna; debes navegar a través de la confusión confiando únicamente en tu instinto.",
+    "preguntas": [
+      "¿Qué miedos irracionales o ansiedades están nublando mi juicio actual?",
+      "¿Qué secreto o emoción reprimida está intentando salir a la superficie?",
+      "¿Cómo puedo distinguir entre mis intuiciones reales y mis paranoias?"
+    ]
+  },
+  {
+    "id": 19,
+    "nombre": "XIX - EL SOL",
+    "imagen": "assets/19_Sun.jpg",
+    "descripcion": "La vitalidad, el éxito, la alegría pura y la claridad absoluta. Es la carta más positiva, donde todas las dudas se disipan y tu niño interior sale a jugar, irradiando luz y calor.",
+    "preguntas": [
+      "¿Qué me da alegría genuina y cómo puedo incorporar más de eso en mi día a día?",
+      "¿En qué áreas de mi vida me siento verdaderamente exitoso y radiante?",
+      "¿Cómo puedo abrazar mi vulnerabilidad con la confianza de un niño?"
+    ]
+  },
+  {
+    "id": 20,
+    "nombre": "XX - EL JUICIO",
+    "imagen": "assets/20_Judgement.jpg",
+    "descripcion": "El renacimiento, la vocación, el perdón y el despertar. Es el llamado a ascender a un nivel superior de conciencia, absolviéndote del pasado y abrazando tu verdadero propósito vital.",
+    "preguntas": [
+      "¿A qué 'llamado superior' o vocación estoy sintiendo el impulso de responder?",
+      "¿Qué necesito perdonarme a mí mismo o a otros para poder avanzar sin cargas?",
+      "¿Qué aspecto de mi ser está listo para renacer y dejar el pasado atrás?"
+    ]
+  },
+  {
+    "id": 21,
+    "nombre": "XXI - EL MUNDO",
+    "imagen": "assets/21_World.jpg",
+    "descripcion": "La culminación, la integración, el éxito total y el fin de un ciclo. Representa haber aprendido las lecciones del viaje; ahora estás completo, en armonía con el universo y listo para el próximo nivel.",
+    "preguntas": [
+      "¿Qué gran ciclo o etapa en mi vida estoy celebrando haber completado?",
+      "¿Cómo puedo honrar e integrar todas las lecciones que he aprendido hasta ahora?",
+      "Sintiéndome completo, ¿qué nuevo viaje estoy listo para comenzar?"
+    ]
+  }
+]
